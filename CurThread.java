@@ -14,9 +14,12 @@
  * 
  * The value for Counter should increment providing the values 1, 2, 3, 4.
  * The input values for startI are 0, 2, 4, 6.
- * Adding each respective incremented cound with input in each respective thread should output 1, 4, 7, 10 which is the sum
- * of each respecitve set of values pertaining to a specific thread. To see this result achieved simply use a non-static counter
- * and set usingStaticCounter to false.
+ * Adding each respective incremented count with input in each respective thread should output 1, 4, 7, 10 which is the sum
+ * of each respecitve set of values pertaining to a specific thread. To see this result achieved one thread would be run in a loop so that the count
+ * would increment to 4 which never happens in this example. If the race conditions did not occur than the result desired might be obtained.
+ * 
+ * If you comment out the static counter and use the non-static counter you will see that the counter will never be higher than 1 and the sums
+ * will be 1, 3, 5, 7 because each thread will run at the same time and increment the count to only 1 and no higher.
  * 
  * To see what happens when the race condition occurs, use a static counter and set usingStaticCounter to true.
  * 
@@ -24,10 +27,9 @@
  * that each thread is in the middle of the process of the program at the same time. Due to this, each of them increment counter
  * before the other has the chance to use count at a value of less than 4 (max count).
  * 
- * "Thread xx" is used to represent that one of the four threads ought to have the following output.
  * 
  * @author Caleb Krauter
- * @verion 1.0.0.0
+ * @verion 1.0.0.1
  * 
  */
 public class CurThread extends Thread{
@@ -37,7 +39,7 @@ public class CurThread extends Thread{
 
     // Comment out the static counter to see the program work without race conditions. Also set usingStaticCounter to false.
     /** Shared resource counter. */
-    private static int counter = 0;
+    // private static int counter = 0;
     // Comment out the non-static counter to see the program work with race conditions. Also set usingStaticCounter to true.
     /** Non-shared resource counter. */
     // private int counter = 0;

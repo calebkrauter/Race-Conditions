@@ -1,3 +1,10 @@
+/**
+ * Start some threads with specific values.
+ * 
+ * @author Caleb Krauter
+ * @verion 1.0.0.1
+ */
+
 public class Multithreads {
     public static void main(String[] args) {
         CurThread val1 = new CurThread();
