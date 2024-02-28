@@ -42,7 +42,7 @@ public class CurThread extends Thread{
     // private static int counter = 0;
     // Comment out the non-static counter to see the program work with race conditions. Also set usingStaticCounter to true.
     /** Non-shared resource counter. */
-    // private int counter = 0;
+    private int counter = 0;
     /** Used to help display information based on the use of a shared resource. */
     private boolean usingStaticCounter = true;
 
